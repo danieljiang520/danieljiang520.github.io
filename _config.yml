@@ -24,11 +24,11 @@ author:
   avatar           : "Daniel_Jiang_Business_head_optimized.jpg"
   name             : "Daniel Jiang"
   pronouns         : # example: "she/her"
-  bio              : "Short biography for the left-hand sidebar"
+  # bio              : "Short biography for the left-hand sidebar"
   location         : "Stanford, CA"
   employer         : "Stanford University"
   uri              : # URL
-  email            : "danieldj [at] stanford [dot] edu"
+  email            : "danieldj@stanford.edu"
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
