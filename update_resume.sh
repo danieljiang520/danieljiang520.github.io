@@ -55,24 +55,30 @@ fi
 
 # Git operations
 echo ""
-echo "Committing and pushing changes..."
 
 git add "$TARGET_FILE"
 
-git commit -m "Update resume"
-
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to commit changes"
-    exit 1
-fi
-
-git push origin master
-
-if [ $? -eq 0 ]; then
-    echo "✓ Changes pushed to remote repository"
+# Check if there are actually changes to commit
+if git diff --cached --quiet; then
+    echo "No changes detected - resume is already up to date"
 else
-    echo "Error: Failed to push to remote"
-    exit 1
+    echo "Committing and pushing changes..."
+    
+    git commit -m "Update resume"
+    
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to commit changes"
+        exit 1
+    fi
+    
+    git push origin master
+    
+    if [ $? -eq 0 ]; then
+        echo "✓ Changes pushed to remote repository"
+    else
+        echo "Error: Failed to push to remote"
+        exit 1
+    fi
 fi
 
 # Open the resume URL in browser
