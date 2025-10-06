@@ -60,6 +60,9 @@ fi
 # Git operations
 echo ""
 
+# Change to the repository directory to run git commands
+cd "$SCRIPT_DIR"
+
 git add "$TARGET_FILE"
 
 # Check if there are actually changes to commit
