@@ -47,3 +47,30 @@ else
     exit 1
 fi
 
+# Git operations
+echo ""
+echo "Committing and pushing changes..."
+
+git add "$TARGET_FILE"
+
+git commit -m "Update resume"
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to commit changes"
+    exit 1
+fi
+
+git push origin master
+
+if [ $? -eq 0 ]; then
+    echo "✓ Changes pushed to remote repository"
+else
+    echo "Error: Failed to push to remote"
+    exit 1
+fi
+
+# Open the resume URL in browser
+echo ""
+echo "Opening resume in browser..."
+open "https://danieljiang520.github.io/files/Daniel_Jiang_Stanford_Resume.pdf"
+
