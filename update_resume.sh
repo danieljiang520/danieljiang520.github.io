@@ -1,8 +1,12 @@
 #!/bin/bash
 
-# Script to update Daniel_Jiang_Stanford_Resume.pdf
+# Script to update resume on GitHub Pages
 # Usage: ./update_resume.sh [optional_filepath]
 # If no filepath is provided, uses the most recently added file from ~/Downloads
+
+# Configuration - Update these for your own setup
+GITHUB_USERNAME="danieljiang520"
+RESUME_FILENAME="Daniel_Jiang_Stanford_Resume.pdf"
 
 # Get the directory where this script is actually located (follow symlinks)
 SOURCE="${BASH_SOURCE[0]}"
@@ -12,7 +16,7 @@ while [ -h "$SOURCE" ]; do
     [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE"
 done
 SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
-TARGET_FILE="$SCRIPT_DIR/files/Daniel_Jiang_Stanford_Resume.pdf"
+TARGET_FILE="$SCRIPT_DIR/files/$RESUME_FILENAME"
 
 # Check if a filepath argument was provided
 if [ -n "$1" ]; then
@@ -84,5 +88,5 @@ fi
 # Open the resume URL in browser
 echo ""
 echo "Opening resume in browser..."
-open "https://danieljiang520.github.io/files/Daniel_Jiang_Stanford_Resume.pdf"
+open "https://${GITHUB_USERNAME}.github.io/files/$RESUME_FILENAME"
 
